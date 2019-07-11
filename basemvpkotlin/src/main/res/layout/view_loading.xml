@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       tools:gravity="center"
+       tools:orientation="vertical"
+       tools:parentTag="android.widget.LinearLayout">
+
+    <com.agrawalsuneet.dotsloader.loaders.TashieLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tashieloader_animDelay="200"
+            app:tashieloader_animDur="1000"
+            app:tashieloader_dotsColor="@color/colorAccent"
+            app:tashieloader_dotsDist="8dp"
+            app:tashieloader_dotsRadius="5dp"
+            app:tashieloader_interpolator="@android:anim/accelerate_interpolator"
+            app:tashieloader_noOfDots="6"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_triple"
+            android:gravity="center_horizontal"
+            android:text="@string/loading"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/txtLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_normal"
+            android:gravity="center_horizontal"
+            android:text="@string/please_wait"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:textSize="@dimen/text_small_body"/>
+
+</merge>

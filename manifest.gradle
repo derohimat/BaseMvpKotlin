@@ -1,0 +1,41 @@
+ext {
+    github_username = 'derohimat'
+    github_repository_name = 'BaseMvpKotlin'
+
+    maintainer = 'Deni Rohimat'
+
+    library_description = 'Android Base MVP with Kotlin'
+    library_keywords = ['derohimat', 'base mvp kotlin', 'base mvp']
+    library_licenses = ["Apache-2.0"]
+    library_licenses_url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    library_project_group = 'dev.comeet'
+    library_version = '0.0.2'
+    version_code = 1
+    min_sdk = 21
+    target_sdk = 29
+    build_sdk = '29.0.0'
+    demo_app_id = 'dev.comeet.basemvpkotlindemo'
+
+    // Gradle classpath dependencies versions
+    kotlin_version = '1.3.41'
+    anko_version = '0.10.8'
+    gradle_version = '3.4.2'
+    maven_gradle_version = '2.1'
+    gradle_versions_plugin_version = '0.20.0'
+    bintray_plugin_version = '1.7'
+
+    // Library and app testing dependencies versions
+    junit_version = '4.12'
+    androidx_test_core_version = '1.0.0'
+    androidx_test_runner_version = '1.2.0'
+    androidx_test_rules_version = '1.2.0'
+    androidx_test_ext_junit_version = '1.0.0'
+    androidx_test_ext_truth_version = '1.0.0'
+    truth_version = '0.42'
+    androidx_test_espresso_version = '3.2.0'
+
+    // Library and app dependencies versions
+    androidx_appcompat_version = '1.0.2'
+    androidx_core_ktx = '1.0.2'
+
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       tools:gravity="center"
+       tools:orientation="vertical"
+       tools:parentTag="android.widget.LinearLayout">
+
+    <TextView
+            android:id="@+id/txtErrorTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/space_normal"
+            android:text="@string/error_connection"
+            android:textColor="#ee2c56"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/txtError"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_double"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/space_normal"
+            android:text="@string/error_message"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:textSize="@dimen/text_small_body"/>
+
+    <Button
+            android:id="@+id/btnReload"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_quadruple"
+            android:gravity="center"
+            android:padding="@dimen/space_double"
+            android:text="@string/error_reload"
+            android:textAllCaps="false"
+            android:textStyle="bold"/>
+
+</merge>

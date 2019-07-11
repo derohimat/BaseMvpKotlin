@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">basemvpkotlin</string>
+
+    <!-- Error View -->
+    <string name="error_message">You’re currently offline. Go back online to use the app.</string>
+    <string name="error_reload">Retry</string>
+    <string name="error_connection">Error Connection</string>
+
+    <!-- Dialog and Loading -->
+    <string name="oops">Oops…</string>
+    <string name="loading">Loading…</string>
+    <string name="send_discussion">Send Discussion</string>
+    <string name="please_wait">Please Wait</string>
+
+</resources>
