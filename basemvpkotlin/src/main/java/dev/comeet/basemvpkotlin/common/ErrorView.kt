@@ -70,6 +70,10 @@ class ErrorView : LinearLayout {
         visible()
     }
 
+    fun setButtonText(text: String) {
+        btnReload.text = text
+    }
+
     interface ErrorListener {
         fun onReloadData()
     }
