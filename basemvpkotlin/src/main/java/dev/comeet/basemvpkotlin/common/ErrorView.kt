@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import dev.comeet.basemvpkotlin.R
 import dev.comeet.basemvpkotlin.util.getColorCompat
+import dev.comeet.basemvpkotlin.util.gone
 import dev.comeet.basemvpkotlin.util.visible
 import kotlinx.android.synthetic.main.view_error.view.*
 import org.jetbrains.anko.backgroundColor
@@ -26,7 +27,11 @@ class ErrorView : LinearLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
@@ -72,6 +77,24 @@ class ErrorView : LinearLayout {
 
     fun setButtonText(text: String) {
         btnReload.text = text
+    }
+
+    fun setTitle(title: String) {
+        txtErrorTitle.text = title
+    }
+
+    fun showTitle(show: Boolean) {
+        when {
+            show -> txtErrorTitle.visible()
+            else -> txtErrorTitle.gone()
+        }
+    }
+
+    fun showButton(show: Boolean) {
+        when {
+            show -> btnReload.visible()
+            else -> btnReload.gone()
+        }
     }
 
     interface ErrorListener {
