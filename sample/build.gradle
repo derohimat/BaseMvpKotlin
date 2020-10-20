@@ -57,7 +57,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso_version"
 
     // Support
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
     implementation project(':basemvpkotlin')
     implementation 'dev.comeet:basemvpkotlin:0.0.2'
