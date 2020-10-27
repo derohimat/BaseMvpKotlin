@@ -6,7 +6,7 @@ import dev.comeet.basemvpkotlin.util.DialogFactory
 import dev.comeet.basemvpkotlindemo.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseMvpActivity(), MainView {
+class MainActivity : BaseMvpActivity(R.layout.activity_main), MainView {
 
     private lateinit var presenter: MainPresenter
 
@@ -27,8 +27,6 @@ class MainActivity : BaseMvpActivity(), MainView {
     override fun detachView() {
         presenter.detachView()
     }
-
-    override fun layoutId(): Int = R.layout.activity_main
 
     override fun showToast(message: String) {
         DialogFactory.createDialog(mContext, "Sample", message).show()

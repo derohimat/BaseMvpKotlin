@@ -1,10 +1,11 @@
 package dev.comeet.basemvpkotlin.activity
 
+import androidx.annotation.LayoutRes
 import com.derohimat.sweetalertdialog.SweetAlertDialog
 import dev.comeet.basemvpkotlin.mvp.MvpView
 import dev.comeet.basemvpkotlin.util.DialogFactory
 
-abstract class BaseMvpActivity : BaseActivity(), MvpView {
+abstract class BaseMvpActivity(@LayoutRes layoutRes: Int) : BaseActivity(layoutRes), MvpView {
 
     private var progressDialog: SweetAlertDialog? = null
 
@@ -49,7 +50,7 @@ abstract class BaseMvpActivity : BaseActivity(), MvpView {
             error.message?.let {
                 DialogFactory.createErrorDialog(mContext, it).show()
                 if (it == "Not a valid token!") {
-//                    showLogin401()
+                    showLogin()
                 }
             }
         }
@@ -58,10 +59,14 @@ abstract class BaseMvpActivity : BaseActivity(), MvpView {
     override fun showError(error: String) {
         if (!isFinishing) {
             if (error == "Not a valid token!") {
-//                showLogin401()
+                showLogin()
             }
             DialogFactory.createErrorDialog(mContext, error).show()
         }
+    }
+
+    override fun showLogin() {
+
     }
 
 }

@@ -1,17 +1,21 @@
 package dev.comeet.basemvpkotlin.mvp
 
-import dev.comeet.basemvpkotlin.util.DisposableManager
-import io.reactivex.disposables.Disposable
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import timber.log.Timber
+import kotlin.coroutines.CoroutineContext
 
 /**
  * Base class that implements the Presenter interface and provides a base implementation for
  * attachView() and detachView(). It also handles keeping a reference to the mvpView that
  * can be accessed from the children classes by calling getMvpView().
  */
-open class BasePresenter<T : MvpView> : Presenter<T> {
+open class BasePresenter<T : MvpView> : Presenter<T>, CoroutineScope {
 
+    var job = Job()
     var mvpView: T? = null
+    override val coroutineContext: CoroutineContext = job + Dispatchers.IO
 
     override fun attachView(mvpView: T) {
         this.mvpView = mvpView
@@ -19,7 +23,7 @@ open class BasePresenter<T : MvpView> : Presenter<T> {
 
     override fun detachView() {
         mvpView = null
-        DisposableManager.dispose()
+        job.complete()
     }
 
     private val isViewAttached: Boolean
@@ -32,9 +36,4 @@ open class BasePresenter<T : MvpView> : Presenter<T> {
         }
     }
 
-    fun addDisposable(disposable: Disposable) {
-        DisposableManager.add(disposable)
-    }
-
 }
-

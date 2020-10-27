@@ -1,10 +1,11 @@
 package dev.comeet.basemvpkotlin.fragment
 
+import androidx.annotation.LayoutRes
 import com.derohimat.sweetalertdialog.SweetAlertDialog
 import dev.comeet.basemvpkotlin.mvp.MvpView
 import dev.comeet.basemvpkotlin.util.DialogFactory
 
-abstract class BaseMvpFragment : BaseFragment(), MvpView {
+abstract class BaseMvpFragment(@LayoutRes layoutRes: Int) : BaseFragment(layoutRes), MvpView {
 
     protected var page: Int = 1
     protected var isOnLoad: Boolean = false
@@ -35,14 +36,20 @@ abstract class BaseMvpFragment : BaseFragment(), MvpView {
     }
 
     override fun showError(error: Throwable) {
-        if (error.message == "Not a valid token!") {
-//            showLogin401()
+        error.message?.let {
+            DialogFactory.createErrorDialog(mContext, it).show()
+            if (it == "Not a valid token!") {
+                showLogin()
+            }
         }
     }
 
-    override fun showError(error: String) {
-        if (error == "Not a valid token!") {
-//            showLogin401()
+    override fun showError(message: String) {
+        message.let {
+            DialogFactory.createErrorDialog(mContext, it).show()
+            if (it == "Not a valid token!") {
+                showLogin()
+            }
         }
     }
 

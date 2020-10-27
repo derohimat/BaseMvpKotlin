@@ -2,9 +2,6 @@ package dev.comeet.basemvpkotlin.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import org.jetbrains.anko.support.v4.ctx
@@ -16,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong
  * creation of Dagger components and makes sure that instances of ConfigPersistentComponent are kept
  * across configuration changes.
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
 
     private var fragmentId = 0L
     protected lateinit var mContext: Context
@@ -35,13 +32,6 @@ abstract class BaseFragment : Fragment() {
         // being called after a configuration change.
         fragmentId = savedInstanceState?.getLong(KEY_FRAGMENT_ID) ?: NEXT_ID.getAndIncrement()
     }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(layoutId(), container, false)
-    }
-
-    @LayoutRes
-    abstract fun layoutId(): Int
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

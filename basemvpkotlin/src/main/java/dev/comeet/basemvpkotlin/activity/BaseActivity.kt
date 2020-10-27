@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicLong
  * api.
  * - Handles signing out when an authentication error event is received.
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity(@LayoutRes layoutRes: Int) : AppCompatActivity(layoutRes) {
 
     private var activityId = 0L
     protected lateinit var mContext: Context
@@ -32,15 +32,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId())
         mContext = this
         // Create the ActivityComponent and reuses cached ConfigPersistentComponent if this is
         // being called after a configuration change.
         activityId = savedInstanceState?.getLong(KEY_ACTIVITY_ID) ?: NEXT_ID.getAndIncrement()
     }
-
-    @LayoutRes
-    abstract fun layoutId(): Int
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
