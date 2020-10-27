@@ -9,7 +9,7 @@ ext {
     library_licenses = ["Apache-2.0"]
     library_licenses_url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     library_project_group = 'dev.comeet'
-    library_version = '0.0.4'
+    library_version = '0.0.5'
     version_code = 1
     min_sdk = 21
     target_sdk = 30
@@ -31,7 +31,7 @@ ext {
     androidx_test_rules_version = '1.3.0'
     androidx_test_ext_junit_version = '1.1.2'
     androidx_test_ext_truth_version = '1.3.0'
-    truth_version = '1.0.1'
+    truth_version = '1.1'
     androidx_test_espresso_version = '3.3.0'
 
     // Library and app dependencies versions
